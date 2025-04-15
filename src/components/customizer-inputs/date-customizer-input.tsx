@@ -4,8 +4,8 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "../ui/separator";
 
 interface Props {
-  component: DraggableComponent;
-  updateComponent: (component: DraggableComponent) => void;
+  component: FormComponent;
+  updateComponent: (component: FormComponent) => void;
 }
 
 export default function DateCustomizerInput({
@@ -13,7 +13,7 @@ export default function DateCustomizerInput({
   updateComponent,
 }: Props) {
   const handleChange = (
-    key: keyof DraggableComponent,
+    key: keyof FormComponent,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     updateComponent({
@@ -23,7 +23,7 @@ export default function DateCustomizerInput({
   };
 
   const handleChangeChecked = (
-    key: keyof DraggableComponent,
+    key: keyof FormComponent,
     checkedValue: boolean
   ) => {
     updateComponent({
@@ -45,8 +45,8 @@ export default function DateCustomizerInput({
           <Label htmlFor="text">Title</Label>
           <Input
             title="Title"
-            value={component.title}
-            onChange={(e) => handleChange("title", e)}
+            value={component.question}
+            onChange={(e) => handleChange("question", e)}
           />
         </div>
 

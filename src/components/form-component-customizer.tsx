@@ -1,4 +1,4 @@
-import { DraggableTypeComponents } from "@/types/DraggableTypeComponents";
+import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
 import TextCustomizerInput from "./customizer-inputs/text-customizer-input";
 import BasicTypeComponent from "./types-inputs/basic-type-component";
 import NumberInputComponent from "./types-inputs/number-input-component";
@@ -8,8 +8,8 @@ import DateCustomizerInput from "./customizer-inputs/date-customizer-input";
 import SelectionCustomizerInput from "./customizer-inputs/select-customizer-input";
 
 interface propos {
-  component: DraggableComponent;
-  updateComponent: (component: DraggableComponent) => void;
+  component: FormComponent;
+  updateComponent: (component: FormComponent) => void;
 }
 
 export function FormComponentCustomizer({
@@ -19,35 +19,35 @@ export function FormComponentCustomizer({
   const selectTypeComponent = () => {
     if (component && component.inputed) {
       switch (component.type) {
-        case DraggableTypeComponents.TEXT:
+        case FormComponentTypeComponents.TEXT:
           return (
             <TextCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case DraggableTypeComponents.DATE:
+        case FormComponentTypeComponents.DATE:
           return (
             <DateCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case DraggableTypeComponents.NUMBER:
+        case FormComponentTypeComponents.NUMBER:
           return (
             <NumberCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case DraggableTypeComponents.RADIO:
+        case FormComponentTypeComponents.RADIO:
           return (
             <RadioCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case DraggableTypeComponents.SELECTION:
+        case FormComponentTypeComponents.SELECTION:
           return (
             <SelectionCustomizerInput
               component={component}

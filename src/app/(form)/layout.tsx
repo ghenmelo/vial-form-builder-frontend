@@ -10,7 +10,7 @@ export default function FormLayout({
     <main className="h-full w-full flex flex-col items-center">
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

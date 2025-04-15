@@ -4,8 +4,8 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "../ui/separator";
 
 interface Props {
-  component: DraggableComponent;
-  updateComponent: (component: DraggableComponent) => void;
+  component: FormComponent;
+  updateComponent: (component: FormComponent) => void;
 }
 
 export default function RadioCustomizerInput({
@@ -13,7 +13,7 @@ export default function RadioCustomizerInput({
   updateComponent,
 }: Props) {
   const handleChange = (
-    key: keyof DraggableComponent,
+    key: keyof FormComponent,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     updateComponent({
@@ -35,8 +35,8 @@ export default function RadioCustomizerInput({
           <Label htmlFor="text">Title</Label>
           <Input
             title="Title"
-            value={component.title}
-            onChange={(e) => handleChange("title", e)}
+            value={component.question}
+            onChange={(e) => handleChange("question", e)}
           />
         </div>
       </div>

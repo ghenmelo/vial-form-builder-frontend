@@ -1,4 +1,4 @@
-export enum DraggableTypeComponents {
+export enum FormComponentTypeComponents {
   TEXT = "text",
   DATE = "date",
   NUMBER = "number",

@@ -1,5 +1,5 @@
 interface props {
-  component: DraggableComponent;
+  component: FormComponent;
 }
 
 export default function BasicTypeComponent({ component }: props) {

@@ -5,10 +5,9 @@ import {
   DragEndEvent,
   DragOverEvent,
   DragStartEvent,
-  pointerWithin,
 } from "@dnd-kit/core";
 import FormComponentsOptions from "./form-component-options";
-import FormComponents from "./form-components";
+import FormDraggableComponents from "./form-draggable-components";
 import DragOverlayComponent from "./drag-overlay-component";
 import { useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
@@ -17,26 +16,25 @@ import { FormProperties } from "../form-properties";
 import { Button } from "../ui/button";
 
 export default function FormComponentBuilder() {
-  const [insertingForm, setInsertingForm] = useState<DraggableComponent>();
+  const [insertingForm, setInsertingForm] = useState<FormComponent>();
 
   const [formSelectedComponents, setFormSelectedComponents] = useState<
-    DraggableComponent[]
+    FormComponent[]
   >([]);
   const [formProperties, setFormProperties] = useState<FormProperties>({
-    formSubmitPlaceholder: "Submit",
     formTitle: "Form Builder",
   });
 
   const [activeDraggableInput, setActiveDraggableInput] =
-    useState<DraggableComponent>();
+    useState<FormComponent>();
 
   const [customizingComponent, setCustomizingComponent] =
-    useState<DraggableComponent>();
+    useState<FormComponent>();
 
   const findIndex = (id: string) =>
     formSelectedComponents.findIndex((item) => item.id === id);
 
-  const updateComponent = (customizingComponent: DraggableComponent) => {
+  const updateComponent = (customizingComponent: FormComponent) => {
     setFormSelectedComponents((prev) =>
       prev.map((item) =>
         item.id === customizingComponent?.id ? customizingComponent : item
@@ -82,8 +80,9 @@ export default function FormComponentBuilder() {
 
     if (isOverInserted || isOverDropArea) {
       const component = formSelectedComponents.find(
-        (item) => item.id === insertingForm?.id
+        (item) => item.id === insertingForm?.id || item.id === active.id
       );
+
       setCustomizingComponent(component);
     }
 
@@ -91,7 +90,6 @@ export default function FormComponentBuilder() {
   };
 
   const onDragOver = (event: DragOverEvent) => {
-    console.log("entrou");
     const { active, over } = event;
 
     const creatingFormComponent = !active?.data?.current?.draggable?.inputed;
@@ -102,7 +100,7 @@ export default function FormComponentBuilder() {
     const overId = String(over?.id);
 
     if (creatingFormComponent) {
-      const uuid = self.crypto.randomUUID();
+      const uuid = Date.now();
 
       const newForm = {
         ...active?.data?.current?.draggable,
@@ -138,8 +136,7 @@ export default function FormComponentBuilder() {
           );
         }
       }
-    } else {
-      console.log("aqui");
+    } else if (insertingForm?.id != over?.id) {
       const from = findIndex(activeId);
       const to = findIndex(overId);
       setFormSelectedComponents(arrayMove(formSelectedComponents, from, to));
@@ -157,6 +154,7 @@ export default function FormComponentBuilder() {
           <FormProperties
             formProperties={formProperties}
             setFormProperties={setFormProperties}
+            formSelectedComponents={formSelectedComponents}
           />
           <FormComponentsOptions />
         </div>
@@ -168,13 +166,13 @@ export default function FormComponentBuilder() {
                 {formProperties.formTitle}
               </h3>
             </div>
-            <FormComponents
+            <FormDraggableComponents
               customizingComponentId={customizingComponent?.id}
               components={formSelectedComponents}
             />
             <div className="px-6 w-full flex justify-end">
-              <Button className="w-36">
-                {formProperties.formSubmitPlaceholder}
+              <Button className="w-36 bg-sidebar-primary text-white">
+                Send Form
               </Button>
             </div>
           </div>

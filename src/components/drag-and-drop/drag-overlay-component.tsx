@@ -7,7 +7,7 @@ import GenericDraggableComponent from "./generic-draggable-component";
 export default function ({
   dragComponent,
 }: {
-  dragComponent: DraggableComponent | undefined;
+  dragComponent: FormComponent | undefined;
 }) {
   return (
     <>
@@ -18,6 +18,7 @@ export default function ({
               <GenericDraggableComponent
                 key={dragComponent.id}
                 draggable={dragComponent}
+                isCustomizing={true}
               ></GenericDraggableComponent>
             )}
           </DragOverlay>,

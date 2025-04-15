@@ -6,11 +6,10 @@ import NumberInputComponent from "../types-inputs/number-input-component";
 import RadioInputComponent from "../types-inputs/radio-input-component";
 import SelectionInputComponent from "../types-inputs/selection-input-component";
 import BasicTypeComponent from "../types-inputs/basic-type-component";
-import { DraggableTypeComponents } from "@/types/DraggableTypeComponents";
-import { Separator } from "../ui/separator";
+import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
 
 interface props {
-  draggable: DraggableComponent;
+  draggable: FormComponent;
   isCustomizing: boolean;
 }
 
@@ -41,15 +40,15 @@ export default function GenericDraggableComponent({
   const selectTypeComponent = () => {
     if (draggable && draggable.inputed) {
       switch (draggable.type) {
-        case DraggableTypeComponents.TEXT:
+        case FormComponentTypeComponents.TEXT:
           return <TextInputComponent component={draggable} />;
-        case DraggableTypeComponents.DATE:
+        case FormComponentTypeComponents.DATE:
           return <DateInputComponent component={draggable} />;
-        case DraggableTypeComponents.NUMBER:
+        case FormComponentTypeComponents.NUMBER:
           return <NumberInputComponent component={draggable} />;
-        case DraggableTypeComponents.RADIO:
+        case FormComponentTypeComponents.RADIO:
           return <RadioInputComponent component={draggable} />;
-        case DraggableTypeComponents.SELECTION:
+        case FormComponentTypeComponents.SELECTION:
           return <SelectionInputComponent component={draggable} />;
       }
     }

@@ -2,12 +2,12 @@ import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import GenericDraggableComponent from "./generic-draggable-component";
 
-const components: DraggableComponent[] = [
+const components: FormComponent[] = [
   {
     id: "1",
     type: "text",
     inputed: false,
-    title: "Text Title",
+    question: "Text Title",
     required: false,
     placeholder: "Placeholder value",
   },
@@ -15,7 +15,7 @@ const components: DraggableComponent[] = [
     id: "2",
     type: "number",
     inputed: false,
-    title: "Number Title",
+    question: "Number Title",
     required: false,
     placeholder: "Placeholder value",
   },
@@ -23,7 +23,7 @@ const components: DraggableComponent[] = [
     id: "3",
     type: "radio",
     inputed: false,
-    title: "Radio Title",
+    question: "Radio Title",
     required: false,
     placeholder: "Placeholder value",
   },
@@ -31,15 +31,16 @@ const components: DraggableComponent[] = [
     id: "4",
     type: "selection",
     inputed: false,
-    title: "Selection title",
+    question: "Selection title",
     required: false,
     placeholder: "Placeholder value",
+    options: "",
   },
   {
     id: "5",
     type: "date",
     inputed: false,
-    title: "Date Title",
+    question: "Date Title",
     required: false,
     placeholder: "Placeholder value",
   },

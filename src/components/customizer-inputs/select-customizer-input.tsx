@@ -4,8 +4,8 @@ import { Switch } from "@/components/ui/switch";
 import { Separator } from "../ui/separator";
 
 interface Props {
-  component: DraggableComponent;
-  updateComponent: (component: DraggableComponent) => void;
+  component: FormComponent;
+  updateComponent: (component: FormComponent) => void;
 }
 
 export default function SelectionCustomizerInput({
@@ -13,7 +13,7 @@ export default function SelectionCustomizerInput({
   updateComponent,
 }: Props) {
   const handleChange = (
-    key: keyof DraggableComponent,
+    key: keyof FormComponent,
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     updateComponent({
@@ -23,7 +23,7 @@ export default function SelectionCustomizerInput({
   };
 
   const handleChangeChecked = (
-    key: keyof DraggableComponent,
+    key: keyof FormComponent,
     checkedValue: boolean
   ) => {
     updateComponent({
@@ -45,8 +45,8 @@ export default function SelectionCustomizerInput({
           <Label htmlFor="text">Title</Label>
           <Input
             title="Title"
-            value={component.title}
-            onChange={(e) => handleChange("title", e)}
+            value={component.question}
+            onChange={(e) => handleChange("question", e)}
           />
         </div>
 
@@ -65,6 +65,17 @@ export default function SelectionCustomizerInput({
             onCheckedChange={(e) => handleChangeChecked("required", e)}
           />
           <Label htmlFor="is-required">Input is Required</Label>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="text">Options</Label>
+          <Input
+            value={component.options}
+            onChange={(e) => handleChange("options", e)}
+          />
+          <p className="text-sm text-muted-foreground">
+            Put the seletion values between ';'. Example: Apple;Grap;Orange;
+          </p>
         </div>
       </div>
     </div>

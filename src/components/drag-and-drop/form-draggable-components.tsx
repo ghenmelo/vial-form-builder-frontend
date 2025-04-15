@@ -5,14 +5,13 @@ import {
 import DropComponentArea from "./drop-component-area";
 import GenericDraggableComponent from "./generic-draggable-component";
 import { ScrollArea } from "../ui/scroll-area";
-import { Separator } from "../ui/separator";
 
 interface Props {
-  components: DraggableComponent[];
+  components: FormComponent[];
   customizingComponentId: string | undefined;
 }
 
-export default function FormComponents({
+export default function FormDraggableComponents({
   components,
   customizingComponentId,
 }: Props) {
