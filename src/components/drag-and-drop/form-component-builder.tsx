@@ -12,8 +12,9 @@ import DragOverlayComponent from "./drag-overlay-component";
 import { useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 import { FormComponentCustomizer } from "../form-component-customizer";
-import { FormProperties } from "../form-properties";
 import { Button } from "../ui/button";
+import { FormComponent, FormProperties } from "@/types/FormComponent";
+import { FormPropertiesComponent } from "../form-properties-component";
 
 export default function FormComponentBuilder() {
   const [insertingForm, setInsertingForm] = useState<FormComponent>();
@@ -151,7 +152,7 @@ export default function FormComponentBuilder() {
         onDragEnd={onDragEnd}
       >
         <div className="w-full h-full bg-primary-foreground rounded-sm flex flex-col gap-4">
-          <FormProperties
+          <FormPropertiesComponent
             formProperties={formProperties}
             setFormProperties={setFormProperties}
             formSelectedComponents={formSelectedComponents}

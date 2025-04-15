@@ -1,12 +1,15 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   component: FormComponent;
   usable?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<Record<string, any>>;
-  errors: FieldErrors<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  errors?: FieldErrors<Record<string, any>>;
 }
 
 export default function NumberInputComponent({

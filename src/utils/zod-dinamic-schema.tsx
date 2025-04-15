@@ -1,3 +1,4 @@
+import { FormComponent } from "@/types/FormComponent";
 import { z, ZodObject, ZodRawShape } from "zod";
 
 export default function zodDinamicSchema(

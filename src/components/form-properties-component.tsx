@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 import { FormService } from "@/service/form.service";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { FormComponent, FormProperties } from "@/types/FormComponent";
 
 interface props {
   formProperties: FormProperties;
@@ -15,7 +16,7 @@ interface props {
   setFormProperties: (formProperties: FormProperties) => void;
 }
 
-export function FormProperties({
+export function FormPropertiesComponent({
   formProperties,
   setFormProperties,
   formSelectedComponents,
@@ -40,6 +41,7 @@ export function FormProperties({
 
     await FormService.saveForm({
       name: formProperties.formTitle,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       fields: JSON.stringify(json) as any,
     })
       .then(() => {

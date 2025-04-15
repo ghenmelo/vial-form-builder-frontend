@@ -3,8 +3,9 @@
 import { DragOverlay } from "@dnd-kit/core";
 import { createPortal } from "react-dom";
 import GenericDraggableComponent from "./generic-draggable-component";
+import { FormComponent } from "@/types/FormComponent";
 
-export default function ({
+export default function DragOverlayComponent({
   dragComponent,
 }: {
   dragComponent: FormComponent | undefined;

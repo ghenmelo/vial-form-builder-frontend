@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
 import { Separator } from "../ui/separator";
+import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   component: FormComponent;

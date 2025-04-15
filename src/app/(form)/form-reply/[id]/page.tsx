@@ -1,6 +1,4 @@
 import FormReplyComponents from "@/components/form-reply-components";
-import FormComponents from "@/components/form-reply-components";
-import FormReplyList from "@/components/form-reply-list";
 
 interface props {
   params: Promise<{ id: string }>;

@@ -3,12 +3,15 @@
 import { Controller, Control, FieldErrors } from "react-hook-form";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   component: FormComponent;
-  updateComponent: (component: FormComponent) => void;
+  updateComponent?: (component: FormComponent) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control?: Control<Record<string, any>>;
-  errors: FieldErrors<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  errors?: FieldErrors<Record<string, any>>;
 }
 
 export default function RadioInputComponent({
@@ -29,10 +32,12 @@ export default function RadioInputComponent({
                 checked={field.value ?? false}
                 onCheckedChange={(checked) => {
                   field.onChange(checked);
-                  updateComponent({
-                    ...component,
-                    answer: String(checked),
-                  });
+                  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                  updateComponent &&
+                    updateComponent({
+                      ...component,
+                      answer: String(checked),
+                    });
                 }}
               />
             )}

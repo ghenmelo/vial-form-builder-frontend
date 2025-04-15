@@ -1,5 +1,6 @@
 "use static";
 
+import { Form, SourceRecord } from "@/types/FormComponent";
 import { handleResponse } from "./fetch.utils";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL;

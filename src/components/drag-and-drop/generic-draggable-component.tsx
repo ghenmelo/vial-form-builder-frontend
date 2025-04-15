@@ -7,6 +7,7 @@ import RadioInputComponent from "../types-inputs/radio-input-component";
 import SelectionInputComponent from "../types-inputs/selection-input-component";
 import BasicTypeComponent from "../types-inputs/basic-type-component";
 import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
+import { FormComponent } from "@/types/FormComponent";
 
 interface props {
   draggable: FormComponent;

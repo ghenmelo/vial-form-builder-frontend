@@ -10,10 +10,13 @@ import {
 } from "@/components/ui/select";
 import { Label } from "../ui/label";
 import { Control, Controller, FieldErrors } from "react-hook-form";
+import { FormComponent } from "@/types/FormComponent";
 
 interface props {
   component: FormComponent;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control?: Control<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors?: FieldErrors<Record<string, any>>;
 }
 

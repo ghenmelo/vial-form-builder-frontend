@@ -8,12 +8,15 @@ import { Calendar } from "../ui/calendar";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Control, Controller, FieldErrors } from "react-hook-form";
+import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   component: FormComponent;
-  updateComponent: (form: FormComponent) => void;
+  updateComponent?: (form: FormComponent) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control?: Control<Record<string, any>>;
-  errors: FieldErrors<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  errors?: FieldErrors<Record<string, any>>;
 }
 
 export default function DateInputComponent({
@@ -63,10 +66,12 @@ export default function DateInputComponent({
                     selected={selectedDate}
                     onSelect={(date) => {
                       field.onChange(date);
-                      updateComponent({
-                        ...component,
-                        answer: date ? String(date) : "",
-                      });
+                      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                      updateComponent &&
+                        updateComponent({
+                          ...component,
+                          answer: date ? String(date) : "",
+                        });
                     }}
                     initialFocus
                   />

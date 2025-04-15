@@ -9,6 +9,7 @@ import {
   Table,
 } from "@/components/ui/table";
 import EyeIconButton from "./action-icons/eye-icon-button";
+import { SourceRecord } from "@/types/FormComponent";
 
 interface Props {
   setVisualizingDataId: (id?: string) => void;

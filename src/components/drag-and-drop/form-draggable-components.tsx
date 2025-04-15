@@ -1,10 +1,10 @@
 import {
   SortableContext,
-  verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import DropComponentArea from "./drop-component-area";
 import GenericDraggableComponent from "./generic-draggable-component";
 import { ScrollArea } from "../ui/scroll-area";
+import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   components: FormComponent[];

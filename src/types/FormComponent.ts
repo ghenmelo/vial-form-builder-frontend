@@ -1,10 +1,10 @@
-interface Form {
+export interface Form {
   id?: string;
   name: string;
   fields: Record<string, FormComponent>;
 }
 
-interface FormComponent {
+export interface FormComponent {
   id: string;
   type: string;
   question: string;
@@ -15,17 +15,17 @@ interface FormComponent {
   answer?: string;
 }
 
-interface FormProperties {
+export interface FormProperties {
   formTitle: string;
 }
 
-interface SourceRecord {
+export interface SourceRecord {
   id?: string;
   formId: string;
   sourceData: SourceData[];
 }
 
-interface SourceData {
+export interface SourceData {
   id?: string;
   question: string;
   answer: string;

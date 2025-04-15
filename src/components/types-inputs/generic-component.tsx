@@ -7,12 +7,16 @@ import RadioInputComponent from "./radio-input-component";
 import SelectionInputComponent from "./selection-input-component";
 import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
 import { Control, FieldErrors, UseFormRegister } from "react-hook-form";
+import { FormComponent } from "@/types/FormComponent";
 
 interface props {
   component: FormComponent;
   updateComponent: (form: FormComponent) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control?: Control<Record<string, any>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors: FieldErrors<Record<string, any>>;
 }
 

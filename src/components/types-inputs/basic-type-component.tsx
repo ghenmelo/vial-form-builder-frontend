@@ -1,3 +1,5 @@
+import { FormComponent } from "@/types/FormComponent";
+
 interface props {
   component: FormComponent;
 }

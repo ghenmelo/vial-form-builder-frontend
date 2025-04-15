@@ -1,11 +1,11 @@
 import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
 import TextCustomizerInput from "./customizer-inputs/text-customizer-input";
 import BasicTypeComponent from "./types-inputs/basic-type-component";
-import NumberInputComponent from "./types-inputs/number-input-component";
 import NumberCustomizerInput from "./customizer-inputs/number-customizer-input";
 import RadioCustomizerInput from "./customizer-inputs/radio-customizer-input";
 import DateCustomizerInput from "./customizer-inputs/date-customizer-input";
 import SelectionCustomizerInput from "./customizer-inputs/select-customizer-input";
+import { FormComponent } from "@/types/FormComponent";
 
 interface propos {
   component: FormComponent;

@@ -6,14 +6,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ScrollArea } from "./ui/scroll-area";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { ZodObject } from "zod";
+import { ZodObject, ZodRawShape } from "zod";
 import zodDinamicSchema from "@/utils/zod-dinamic-schema";
 import { useForm } from "react-hook-form";
 import { SourceRecordService } from "@/service/source-record.service";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 import FormReplyList from "./form-reply-list";
 import { Separator } from "./ui/separator";
+import {
+  Form,
+  FormComponent,
+  SourceData,
+  SourceRecord,
+} from "@/types/FormComponent";
 
 interface Props {
   id: string;
@@ -24,9 +29,9 @@ export default function FormReplyComponents({ id }: Props) {
   const [components, setComponents] = useState<FormComponent[]>([]);
   const [answers, setAnswers] = useState<SourceRecord[]>([]);
   const [isResponding, setIsResponding] = useState<boolean>(true);
-  const [schema, setSchema] = useState<ZodObject<any>>();
-  const router = useRouter();
+  const [schema, setSchema] = useState<ZodObject<ZodRawShape>>();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const formMethods = useForm<Record<string, any>>({
     resolver: schema ? zodResolver(schema) : undefined,
     mode: "onSubmit",
@@ -50,6 +55,7 @@ export default function FormReplyComponents({ id }: Props) {
           const indexB = Number(keyB.split("-")[1]);
           return indexA - indexB;
         })
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .map(([_, value]) => value);
 
       setComponents(orderedList);
@@ -68,6 +74,7 @@ export default function FormReplyComponents({ id }: Props) {
   };
 
   // HERE I USE ANY TYPE BECAUSE ZOD TYPE VALIDATION IS GENERATING DYNAMICALLY
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     const newAnswers = Object.entries(data).map(
       ([question, answer]): SourceData => ({
@@ -108,7 +115,7 @@ export default function FormReplyComponents({ id }: Props) {
 
   const clearAnswers = () => {
     let listComponents = [...components];
-    listComponents = listComponents?.map((comp, index) => {
+    listComponents = listComponents?.map((comp) => {
       comp.answer = "";
       return comp;
     });

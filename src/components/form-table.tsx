@@ -11,6 +11,7 @@ import {
   Table,
 } from "@/components/ui/table";
 import { FormService } from "@/service/form.service";
+import { Form } from "@/types/FormComponent";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 

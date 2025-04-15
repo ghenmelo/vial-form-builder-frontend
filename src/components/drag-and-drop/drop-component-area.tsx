@@ -6,7 +6,7 @@ type Droppable = {
 };
 
 export default function DropComponentArea(props: Droppable) {
-  const { setNodeRef, isOver } = useDroppable({
+  const { setNodeRef } = useDroppable({
     id: "DropArea",
   });
 

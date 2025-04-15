@@ -1,3 +1,4 @@
+import { FormComponent } from "@/types/FormComponent";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import GenericDraggableComponent from "./generic-draggable-component";
