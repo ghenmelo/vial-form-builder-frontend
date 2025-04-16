@@ -46,7 +46,7 @@ export default function SelectInputComponent({
       </Label>
 
       <Controller
-        name={String(component.question)}
+        name={String(component.id)}
         control={control}
         defaultValue=""
         render={({ field }) => (
@@ -67,9 +67,9 @@ export default function SelectInputComponent({
         )}
       />
 
-      {errors?.[component.question] && (
+      {errors?.[component.id] && (
         <span className="text-red-500 text-sm">
-          {errors[component.question]?.message as string}
+          {errors[component.id]?.message as string}
         </span>
       )}
     </div>

@@ -26,14 +26,14 @@ export default function TextAreaInputComponent({
       </Label>
 
       <Textarea
-        {...register(String(component.question))}
+        {...register(String(component.id))}
         placeholder={component.placeholder}
         id={component.id}
       />
 
-      {errors?.[component.question] && (
+      {errors?.[component.id] && (
         <span className="text-red-500 text-sm">
-          {errors[component.question]?.message as string}
+          {errors[component.id]?.message as string}
         </span>
       )}
     </div>

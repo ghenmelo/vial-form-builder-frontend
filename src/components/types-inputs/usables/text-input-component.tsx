@@ -26,15 +26,15 @@ export default function TextInputComponent({
       </Label>
 
       <Input
-        {...register(String(component.question))}
+        {...register(String(component.id))}
         placeholder={component.placeholder}
         type="text"
         id={component.id}
       />
 
-      {errors?.[component.question] && (
+      {errors?.[component.id] && (
         <span className="text-red-500 text-sm">
-          {errors[component.question]?.message as string}
+          {errors[component.id]?.message as string}
         </span>
       )}
     </div>

@@ -6,6 +6,7 @@ export default function zodDinamicSchema(
   fields: FormComponent[]
 ): ZodObject<ZodRawShape> {
   const shape: ZodRawShape = {};
+  console.log(fields);
 
   for (const field of fields) {
     let base;
@@ -61,7 +62,7 @@ export default function zodDinamicSchema(
         base = z.any();
     }
 
-    shape[field.question] = base;
+    shape[field.id] = base;
   }
 
   return z.object(shape);

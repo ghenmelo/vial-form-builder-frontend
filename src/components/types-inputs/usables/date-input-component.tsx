@@ -29,16 +29,15 @@ export default function DateInputComponent({
   errors,
   updateComponent,
 }: Props) {
-  console.log(component.answer);
   return (
     <div className="grid max-w-sm items-start gap-3 p-6">
-      <Label htmlFor={component.question}>
+      <Label htmlFor={component.id}>
         {component.question}
         {component.required && <span className="text-red-500">*</span>}
       </Label>
 
       <Controller
-        name={String(component.question)}
+        name={String(component.id)}
         control={control}
         render={({ field }) => {
           const selectedDate = field.value ? new Date(field.value) : undefined;
@@ -81,9 +80,9 @@ export default function DateInputComponent({
         }}
       />
 
-      {errors?.[component.question] && (
+      {errors?.[component.id] && (
         <span className="text-red-500 text-sm">
-          {errors[component.question]?.message as string}
+          {errors[component.id]?.message as string}
         </span>
       )}
     </div>

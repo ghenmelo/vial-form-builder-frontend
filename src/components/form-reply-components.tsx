@@ -83,8 +83,6 @@ export default function FormReplyComponents({ id }: Props) {
       })
     );
 
-    console.log(newAnswers);
-
     const sourceRecord = {
       formId: id,
       sourceData: newAnswers,
@@ -136,7 +134,7 @@ export default function FormReplyComponents({ id }: Props) {
     <div className="flex justify-around">
       <div className="bg-primary-foreground rounded-sm flex flex-col p-6 w-[40%]">
         <div className="flex flex-row items-center justify-between">
-          <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+          <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary break-all">
             Reply Form: {form?.name}
           </h3>
           <Button

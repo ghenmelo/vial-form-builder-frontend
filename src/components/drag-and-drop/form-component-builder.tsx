@@ -9,13 +9,14 @@ import {
 import FormComponentsOptions from "./form-component-options";
 import FormDraggableComponents from "./form-draggable-components";
 import DragOverlayComponent from "./drag-overlay-component";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 import { FormComponentCustomizer } from "../form-component-customizer";
 import { FormComponent, FormProperties } from "@/types/FormComponent";
 import { FormPropertiesComponent } from "../form-properties-component";
 
 export default function FormComponentBuilder() {
+  const id = useId();
   const [insertingForm, setInsertingForm] = useState<FormComponent>();
 
   const [formSelectedComponents, setFormSelectedComponents] = useState<
@@ -100,11 +101,11 @@ export default function FormComponentBuilder() {
     const overId = String(over?.id);
 
     if (creatingFormComponent) {
-      const uuid = Date.now();
+      const uniqueId = String(Date.now());
 
       const newForm = {
         ...active?.data?.current?.draggable,
-        id: uuid,
+        id: uniqueId,
         inputed: true,
       };
 
@@ -146,6 +147,7 @@ export default function FormComponentBuilder() {
   return (
     <div className="flex gap-15 w-full">
       <DndContext
+        id={id}
         onDragStart={onDragStart}
         onDragOver={onDragOver}
         onDragEnd={onDragEnd}
@@ -162,7 +164,7 @@ export default function FormComponentBuilder() {
         <div className="w-[33%] min-w-[25%]">
           <div className="w-full bg-primary-foreground rounded-sm pr-4">
             <div className="pt-6 px-6 w-full">
-              <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+              <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary break-all">
                 {formProperties.formTitle}
               </h3>
             </div>

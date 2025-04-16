@@ -24,7 +24,7 @@ export default function RadioInputComponent({
     <div className="grid w-full max-w-sm items-center gap-3 p-6">
       <div className="flex items-center space-x-2">
         <Controller
-          name={String(component.question)}
+          name={String(component.id)}
           control={control}
           render={({ field }) => (
             <Switch
@@ -39,15 +39,15 @@ export default function RadioInputComponent({
             />
           )}
         />
-        <Label htmlFor={component.question}>
+        <Label htmlFor={component.id}>
           {component.question}
           {component.required && <span className="text-red-500">*</span>}
         </Label>
       </div>
 
-      {errors?.[component.question] && (
+      {errors?.[component.id] && (
         <span className="text-red-500 text-sm">
-          {errors[component.question]?.message as string}
+          {errors[component.id]?.message as string}
         </span>
       )}
     </div>
