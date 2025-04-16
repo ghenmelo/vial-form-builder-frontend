@@ -3,15 +3,18 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "../../ui/separator";
 import { FormComponent } from "@/types/FormComponent";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   component: FormComponent;
   updateComponent: (component: FormComponent) => void;
+  removeComponent: (id: string) => void;
 }
 
 export default function SelectionCustomizerInput({
   component,
   updateComponent,
+  removeComponent,
 }: Props) {
   const handleChange = (
     key: keyof FormComponent,
@@ -35,9 +38,19 @@ export default function SelectionCustomizerInput({
 
   return (
     <div className="flex flex-col gap-4">
-      <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-        Customizing Selection Component
-      </h3>
+      <div className="flex items-center justify-between">
+        <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+          Customizing Select Component
+        </h3>
+
+        <Button
+          className="cursor-pointer"
+          variant={"destructive"}
+          onClick={() => removeComponent(component.id)}
+        >
+          Remove Component
+        </Button>
+      </div>
 
       <Separator className="my-1" />
 

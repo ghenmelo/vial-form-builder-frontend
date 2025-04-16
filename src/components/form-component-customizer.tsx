@@ -11,11 +11,13 @@ import TextAreaCustomizerInput from "./types-inputs/customizers/text-area-custom
 interface propos {
   component: FormComponent;
   updateComponent: (component: FormComponent) => void;
+  removeComponent: (id: string) => void;
 }
 
 export function FormComponentCustomizer({
   component,
   updateComponent,
+  removeComponent,
 }: propos) {
   const selectTypeComponent = () => {
     if (component && component.inputed) {
@@ -25,6 +27,7 @@ export function FormComponentCustomizer({
             <TextCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
         case FormComponentType.DATE:
@@ -32,6 +35,7 @@ export function FormComponentCustomizer({
             <DateCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
         case FormComponentType.NUMBER:
@@ -39,6 +43,7 @@ export function FormComponentCustomizer({
             <NumberCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
         case FormComponentType.RADIO:
@@ -46,6 +51,7 @@ export function FormComponentCustomizer({
             <RadioCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
         case FormComponentType.SELECTION:
@@ -53,6 +59,7 @@ export function FormComponentCustomizer({
             <SelectionCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
         case FormComponentType.TEXT_AREA:
@@ -60,6 +67,7 @@ export function FormComponentCustomizer({
             <TextAreaCustomizerInput
               component={component}
               updateComponent={updateComponent}
+              removeComponent={removeComponent}
             />
           );
       }

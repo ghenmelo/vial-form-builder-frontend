@@ -14,6 +14,7 @@ import { arrayMove } from "@dnd-kit/sortable";
 import { FormComponentCustomizer } from "../form-component-customizer";
 import { FormComponent, FormProperties } from "@/types/FormComponent";
 import { FormPropertiesComponent } from "../form-properties-component";
+import ErrorBoundary from "../error-bondary";
 
 export default function FormComponentBuilder() {
   const id = useId();
@@ -33,7 +34,7 @@ export default function FormComponentBuilder() {
     useState<FormComponent>();
 
   const findIndex = (id: string) =>
-    formSelectedComponents.findIndex((item) => item.id === id);
+    formSelectedComponents.findIndex((item) => item?.id === id);
 
   const updateComponent = (customizingComponent: FormComponent) => {
     setFormSelectedComponents((prev) =>
@@ -42,6 +43,11 @@ export default function FormComponentBuilder() {
       )
     );
     setCustomizingComponent(customizingComponent);
+  };
+
+  const removeComponent = (id: string) => {
+    setFormSelectedComponents((prev) => prev.filter((item) => item.id !== id));
+    setCustomizingComponent(undefined);
   };
 
   const onDragStart = (event: DragStartEvent) => {
@@ -137,7 +143,7 @@ export default function FormComponentBuilder() {
           );
         }
       }
-    } else if (insertingForm?.id != over?.id) {
+    } else if (insertingForm?.id !== over?.id) {
       const from = findIndex(activeId);
       const to = findIndex(overId);
       setFormSelectedComponents(arrayMove(formSelectedComponents, from, to));
@@ -146,44 +152,47 @@ export default function FormComponentBuilder() {
 
   return (
     <div className="flex gap-15 w-full">
-      <DndContext
-        id={id}
-        onDragStart={onDragStart}
-        onDragOver={onDragOver}
-        onDragEnd={onDragEnd}
-      >
-        <div className="w-[33%] bg-primary-foreground rounded-sm flex flex-col gap-4">
-          <FormPropertiesComponent
-            formProperties={formProperties}
-            setFormProperties={setFormProperties}
-            formSelectedComponents={formSelectedComponents}
-          />
-          <FormComponentsOptions />
-        </div>
-
-        <div className="w-[33%] min-w-[25%]">
-          <div className="w-full bg-primary-foreground rounded-sm pr-4">
-            <div className="pt-6 px-6 w-full">
-              <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary break-all">
-                {formProperties.formTitle}
-              </h3>
-            </div>
-            <FormDraggableComponents
-              customizingComponentId={customizingComponent?.id}
-              components={formSelectedComponents}
+      <ErrorBoundary>
+        <DndContext
+          id={id}
+          onDragStart={onDragStart}
+          onDragOver={onDragOver}
+          onDragEnd={onDragEnd}
+        >
+          <div className="w-[33%] bg-primary-foreground rounded-sm flex flex-col gap-4">
+            <FormPropertiesComponent
+              formProperties={formProperties}
+              setFormProperties={setFormProperties}
+              formSelectedComponents={formSelectedComponents}
             />
+            <FormComponentsOptions />
           </div>
-        </div>
 
-        <DragOverlayComponent dragComponent={activeDraggableInput} />
-      </DndContext>
+          <div className="w-[33%] min-w-[25%]">
+            <div className="w-full bg-primary-foreground rounded-sm pr-4">
+              <div className="pt-6 px-6 w-full">
+                <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary break-all">
+                  {formProperties.formTitle}
+                </h3>
+              </div>
+              <FormDraggableComponents
+                customizingComponentId={customizingComponent?.id}
+                components={formSelectedComponents}
+              />
+            </div>
+          </div>
 
-      {customizingComponent && (
-        <FormComponentCustomizer
-          component={customizingComponent}
-          updateComponent={updateComponent}
-        />
-      )}
+          <DragOverlayComponent dragComponent={activeDraggableInput} />
+        </DndContext>
+
+        {customizingComponent && (
+          <FormComponentCustomizer
+            component={customizingComponent}
+            updateComponent={updateComponent}
+            removeComponent={removeComponent}
+          />
+        )}
+      </ErrorBoundary>
     </div>
   );
 }

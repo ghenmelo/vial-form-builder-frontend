@@ -2,15 +2,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "../../ui/separator";
 import { FormComponent } from "@/types/FormComponent";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   component: FormComponent;
   updateComponent: (component: FormComponent) => void;
+  removeComponent: (id: string) => void;
 }
 
 export default function RadioCustomizerInput({
   component,
   updateComponent,
+  removeComponent,
 }: Props) {
   const handleChange = (
     key: keyof FormComponent,
@@ -24,9 +27,19 @@ export default function RadioCustomizerInput({
 
   return (
     <div className="flex flex-col gap-4">
-      <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-        Customizing Radio Component
-      </h3>
+      <div className="flex items-center justify-between">
+        <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+          Customizing Radio Component
+        </h3>
+
+        <Button
+          className="cursor-pointer"
+          variant={"destructive"}
+          onClick={() => removeComponent(component.id)}
+        >
+          Remove Component
+        </Button>
+      </div>
 
       <Separator className="my-1" />
 
