@@ -34,6 +34,11 @@ export function FormPropertiesComponent({
   };
 
   const handleOnClick = async () => {
+    if (formSelectedComponents && formSelectedComponents.length === 0) {
+      toast.warning("Please, insert at minimun one component");
+      return;
+    }
+
     const json = formSelectedComponents.reduce((acc, item, index) => {
       acc[`field-${index}`] = item;
       return acc;

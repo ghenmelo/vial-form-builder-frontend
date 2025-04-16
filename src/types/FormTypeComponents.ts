@@ -1,7 +1,7 @@
 export enum FormComponentTypeComponents {
-  TEXT = "TEXT",
-  DATE = "DATE",
-  NUMBER = "NUMBER",
-  SELECTION = "SELECTION",
-  RADIO = "RADIO",
+  TEXT = "Text",
+  DATE = "Date",
+  NUMBER = "Number",
+  SELECTION = "Selection",
+  RADIO = "Radio",
 }

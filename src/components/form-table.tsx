@@ -50,24 +50,31 @@ export default function FormTable() {
             </TableHead>
           </TableRow>
         </TableHeader>
+
         <TableBody>
-          {forms &&
-            forms.length &&
+          {forms?.length ? (
             forms.map((form) => (
               <TableRow key={form.id}>
-                <TableCell className="w-[100%]">{form.name}</TableCell>
+                <TableCell className="w-full">{form.name}</TableCell>
                 <TableCell className="flex flex-row gap-3">
                   <EyeIconButton
                     description="View Form"
                     destination={`/form-reply/${form.id}`}
-                  ></EyeIconButton>
+                  />
                   <TrashIconButton
                     description="Delete form"
                     onClickAction={() => deleteForm(form.id)}
-                  ></TrashIconButton>
+                  />
                 </TableCell>
               </TableRow>
-            ))}
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={2} className="text-center py-4">
+                No forms found.
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
     </div>

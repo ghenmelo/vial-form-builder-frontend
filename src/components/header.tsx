@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <div className="w-full bg-gradient-to-r from-[#7D7F9C] to-[#8BA5A1] rounded-sm flex items-center py-4 px-4 justify-between">
+    <div className="w-full bg-primary-foreground rounded-sm flex items-center py-4 px-4 justify-between">
       <div className="flex flex-row gap-2 items-center">
         <Link href={"/form-viewer"}>
           <HouseIcon width={30} height={24}></HouseIcon>

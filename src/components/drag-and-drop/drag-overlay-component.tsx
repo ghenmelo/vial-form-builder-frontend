@@ -14,7 +14,7 @@ export default function DragOverlayComponent({
     <>
       {typeof window !== "undefined" &&
         createPortal(
-          <DragOverlay>
+          <DragOverlay className="rounded-sm">
             {dragComponent && (
               <GenericDraggableComponent
                 key={dragComponent.id}

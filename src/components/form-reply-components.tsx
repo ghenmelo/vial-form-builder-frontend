@@ -100,6 +100,8 @@ export default function FormReplyComponents({ id }: Props) {
   };
 
   const handleSetVisualingDataId = (id?: string) => {
+    reset();
+    clearAnswers();
     const answersFiltered = answers.filter((ans) => ans.id === id)[0];
 
     if (answersFiltered) {
@@ -135,7 +137,11 @@ export default function FormReplyComponents({ id }: Props) {
           <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
             Reply Form: {form?.name}
           </h3>
-          <Button className="cursor-pointer" onClick={handleAnswerForm}>
+          <Button
+            hidden={isResponding}
+            className="cursor-pointer"
+            onClick={handleAnswerForm}
+          >
             Answer Form
           </Button>
         </div>
@@ -143,7 +149,7 @@ export default function FormReplyComponents({ id }: Props) {
         <Separator className="my-4"></Separator>
 
         <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-          Form Anwers
+          Form Answers
         </h3>
         <FormReplyList
           answers={answers}
@@ -159,29 +165,17 @@ export default function FormReplyComponents({ id }: Props) {
                 <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary p-6">
                   {form?.name}
                 </h3>
-                {isResponding
-                  ? components &&
-                    components.map((item) => (
-                      <div key={item.id} className="w-full">
-                        <GenericComponent
-                          component={item}
-                          updateComponent={updateComponent}
-                          register={register}
-                          errors={formState.errors}
-                          control={control}
-                        ></GenericComponent>
-                      </div>
-                    ))
-                  : components &&
-                    components.map((item) => (
-                      <div key={item.id} className="w-full">
-                        <GenericComponent
-                          updateComponent={updateComponent}
-                          component={item}
-                          errors={formState.errors}
-                        ></GenericComponent>
-                      </div>
-                    ))}
+                {components.map((item) => (
+                  <div key={item.id} className="w-full">
+                    <GenericComponent
+                      component={item}
+                      updateComponent={updateComponent}
+                      register={isResponding ? register : undefined}
+                      errors={formState.errors}
+                      control={isResponding ? control : undefined}
+                    ></GenericComponent>
+                  </div>
+                ))}
               </div>
               <div className="flex justify-end">
                 <Button
