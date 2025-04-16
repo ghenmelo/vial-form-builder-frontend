@@ -79,9 +79,11 @@ export default function FormReplyComponents({ id }: Props) {
     const newAnswers = Object.entries(data).map(
       ([question, answer]): SourceData => ({
         question,
-        answer: String(answer),
+        answer: answer ? String(answer) : "",
       })
     );
+
+    console.log(newAnswers);
 
     const sourceRecord = {
       formId: id,
@@ -118,7 +120,7 @@ export default function FormReplyComponents({ id }: Props) {
   const clearAnswers = () => {
     let listComponents = [...components];
     listComponents = listComponents?.map((comp) => {
-      comp.answer = "";
+      comp.answer = undefined;
       return comp;
     });
     setComponents(listComponents);

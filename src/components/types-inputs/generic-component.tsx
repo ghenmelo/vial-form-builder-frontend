@@ -5,7 +5,7 @@ import DateInputComponent from "./usables/date-input-component";
 import NumberInputComponent from "./usables/number-input-component";
 import RadioInputComponent from "./usables/radio-input-component";
 import SelectionInputComponent from "./usables/selection-input-component";
-import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
+import { FormComponentType } from "@/types/FormTypeComponents";
 import { Control, FieldErrors, UseFormRegister } from "react-hook-form";
 import { FormComponent } from "@/types/FormComponent";
 import TextInputPreviewComponent from "./preview/text-input-preview-component";
@@ -38,7 +38,7 @@ export default function GenericComponent({
   const selectTypeComponent = () => {
     if (component) {
       switch (component.type) {
-        case FormComponentTypeComponents.TEXT:
+        case FormComponentType.TEXT:
           return register ? (
             <TextInputComponent
               component={component}
@@ -48,7 +48,7 @@ export default function GenericComponent({
           ) : (
             <TextInputPreviewComponent component={component} />
           );
-        case FormComponentTypeComponents.DATE:
+        case FormComponentType.DATE:
           return control ? (
             <DateInputComponent
               component={component}
@@ -59,7 +59,7 @@ export default function GenericComponent({
           ) : (
             <DateInputPreviewComponent component={component} />
           );
-        case FormComponentTypeComponents.NUMBER:
+        case FormComponentType.NUMBER:
           return register ? (
             <NumberInputComponent
               component={component}
@@ -69,7 +69,7 @@ export default function GenericComponent({
           ) : (
             <NumberInputPreviewComponent component={component} />
           );
-        case FormComponentTypeComponents.RADIO:
+        case FormComponentType.RADIO:
           return control ? (
             <RadioInputComponent
               component={component}
@@ -81,7 +81,7 @@ export default function GenericComponent({
             <RadioInputPreviewComponent component={component} />
           );
 
-        case FormComponentTypeComponents.SELECTION:
+        case FormComponentType.SELECTION:
           return control ? (
             <SelectionInputComponent
               component={component}
@@ -92,7 +92,7 @@ export default function GenericComponent({
             <SelectInputPreviewComponent component={component} />
           );
 
-        case FormComponentTypeComponents.TEXT_AREA:
+        case FormComponentType.TEXT_AREA:
           return register ? (
             <TextAreaInputComponent
               component={component}

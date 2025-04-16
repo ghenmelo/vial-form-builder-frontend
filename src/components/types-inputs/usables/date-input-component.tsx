@@ -27,6 +27,7 @@ export default function DateInputComponent({
   errors,
   updateComponent,
 }: Props) {
+  console.log(component.answer);
   return (
     <div className="grid max-w-sm items-start gap-3 p-6">
       <Label htmlFor={component.question}>

@@ -1,4 +1,4 @@
-import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
+import { FormComponentType } from "@/types/FormTypeComponents";
 import TextCustomizerInput from "./types-inputs/customizers/text-customizer-input";
 import BasicTypeComponent from "./types-inputs/basic-type-component";
 import NumberCustomizerInput from "./types-inputs/customizers/number-customizer-input";
@@ -20,42 +20,42 @@ export function FormComponentCustomizer({
   const selectTypeComponent = () => {
     if (component && component.inputed) {
       switch (component.type) {
-        case FormComponentTypeComponents.TEXT:
+        case FormComponentType.TEXT:
           return (
             <TextCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case FormComponentTypeComponents.DATE:
+        case FormComponentType.DATE:
           return (
             <DateCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case FormComponentTypeComponents.NUMBER:
+        case FormComponentType.NUMBER:
           return (
             <NumberCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case FormComponentTypeComponents.RADIO:
+        case FormComponentType.RADIO:
           return (
             <RadioCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case FormComponentTypeComponents.SELECTION:
+        case FormComponentType.SELECTION:
           return (
             <SelectionCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />
           );
-        case FormComponentTypeComponents.TEXT_AREA:
+        case FormComponentType.TEXT_AREA:
           return (
             <TextAreaCustomizerInput
               component={component}

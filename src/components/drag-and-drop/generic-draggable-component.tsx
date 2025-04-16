@@ -6,7 +6,7 @@ import NumberInputComponent from "../types-inputs/usables/number-input-component
 import RadioInputComponent from "../types-inputs/usables/radio-input-component";
 import SelectionInputComponent from "../types-inputs/usables/selection-input-component";
 import BasicTypeComponent from "../types-inputs/basic-type-component";
-import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
+import { FormComponentType } from "@/types/FormTypeComponents";
 import { FormComponent } from "@/types/FormComponent";
 import TextInputPreviewComponent from "../types-inputs/preview/text-input-preview-component";
 import NumberInputPreviewComponent from "../types-inputs/preview/number-input-preview-componen";
@@ -47,17 +47,17 @@ export default function GenericDraggableComponent({
   const selectTypeComponent = () => {
     if (draggable && draggable.inputed) {
       switch (draggable.type) {
-        case FormComponentTypeComponents.TEXT:
+        case FormComponentType.TEXT:
           return <TextInputPreviewComponent component={draggable} />;
-        case FormComponentTypeComponents.DATE:
+        case FormComponentType.DATE:
           return <DateInputPreviewComponent component={draggable} />;
-        case FormComponentTypeComponents.NUMBER:
+        case FormComponentType.NUMBER:
           return <NumberInputPreviewComponent component={draggable} />;
-        case FormComponentTypeComponents.RADIO:
+        case FormComponentType.RADIO:
           return <RadioInputPreviewComponent component={draggable} />;
-        case FormComponentTypeComponents.SELECTION:
+        case FormComponentType.SELECTION:
           return <SelectInputPreviewComponent component={draggable} />;
-        case FormComponentTypeComponents.TEXT_AREA:
+        case FormComponentType.TEXT_AREA:
           return <TextAreaInputPreviewComponent component={draggable} />;
       }
     }

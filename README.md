@@ -1,59 +1,75 @@
-## 💻 Frontend – Vial Form Builder
+# 🧩 Vial Form Builder – Frontend
 
-The frontend of **Vial Form Builder** was built using [**Next.js**](https://nextjs.org/), with UI components powered by [**shadcn/ui**](https://ui.shadcn.com/) and styling handled entirely via [**Tailwind CSS**](https://tailwindcss.com/).
+The **Vial Form Builder Frontend** is a modern form builder interface developed using **Next.js**, with UI powered by [**shadcn/ui**](https://ui.shadcn.com/) and styling handled by [**Tailwind CSS**](https://tailwindcss.com/).
 
-The application features a consistent **dark theme**
-
----
-
-### 🧭 Pages Overview
-
-#### `/form-viewer`
-
-This page lists all existing forms in a clean, paginated table.
-
-Each form entry includes:
-
-- The **form name**
-- Two action buttons:
-  - **View** (eye icon): navigates to the form reply page (`/form-reply`)
-  - **Delete**: deletes the selected form
-- A large **"Create New Form"** button redirects to the form creation interface
+The application supports a **dark theme**, is fully responsive, and highly componentized for maintainability and scalability.
 
 ---
 
-#### `/form-builder`
+## 🌐 Live Demo
 
-This is the main page for **creating and editing forms**.
+The frontend is deployed on **Vercel** and can be accessed here:
 
-**Features include:**
+🔗 https://vial-form-builder-frontend.vercel.app/form-reply
 
-- **Drag-and-drop interface** for adding and rearranging input components
-- Dynamic **form title editing**
-- On-click **input configuration**, allowing:
+---
+
+## 🧭 Pages Overview
+
+### `/form-viewer`
+
+This page displays a table with all existing forms and provides the following features:
+
+- **Form Name** displayed in a clear table layout
+- **Actions per form**:
+  - 📝 View form responses via the `/form-reply` page
+  - 🗑️ Delete form
+- A large button for **creating new forms**, which navigates to `/form-builder`
+
+---
+
+### `/form-builder`
+
+This is the **form creation/editing interface**, featuring:
+
+- **Drag-and-drop interface** to manage input components dynamically
+- Editable **form title**
+- On-click **input customization**:
   - Edit question title
-  - Set placeholder text
-  - Mark question as required
-  - Add selectable options (for `select`, `radio`, etc.)
-
-When the form is saved, the user is redirected to the form viewer.
-
----
-
-#### `/form-reply` ⚠️
-
-
-This screen allows users to **respond to a form** and **view previously submitted responses**.
-
-**Functionality:**
-
-- Table displays all past responses for the form
-- Button to **submit a new response**
-- **Dynamic validation** using [**Zod**](https://zod.dev/) — schema is generated on the fly based on the form structure
+  - Change placeholder text
+  - Toggle "required" status
+  - Add selectable options (for dropdowns, radios, etc.)
+- After saving, the user is redirected to the form viewer
 
 ---
 
-### ✨ Additional Details
+### `/form-reply` ⚠️
 
-- **Tooltips** on icons for better user experience
-- **Toast notifications** for success, errors, and warnings
+A dedicated page for:
+
+- **Submitting responses** to a form
+- **Viewing all previous responses** in a structured table
+- Includes a button to **submit a new entry**
+- Utilizes **Zod** for dynamic schema validation based on the form structure
+
+---
+
+## ✨ Additional Features
+
+- 🎯 **Tooltips** on action icons for better UX
+- ✅ **Toast notifications** for success, errors, and warnings
+- 🧱 **Component-based architecture** for scalability
+
+---
+
+## 🚀 Running Locally
+
+To run the frontend locally, follow these steps:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/seu-usuario/vial-form-builder-frontend.git
+
+docker compose build
+docker compose up

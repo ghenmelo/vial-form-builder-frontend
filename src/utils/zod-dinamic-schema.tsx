@@ -1,4 +1,5 @@
 import { FormComponent } from "@/types/FormComponent";
+import { FormComponentType } from "@/types/FormTypeComponents";
 import { z, ZodObject, ZodRawShape } from "zod";
 
 export default function zodDinamicSchema(
@@ -10,7 +11,7 @@ export default function zodDinamicSchema(
     let base;
 
     switch (field.type) {
-      case "text":
+      case FormComponentType.TEXT:
         base = z.string();
         if (field.required) {
           base = base.min(1, { message: "Must have a value" });
@@ -18,7 +19,7 @@ export default function zodDinamicSchema(
           base = base.optional();
         }
         break;
-      case "number":
+      case FormComponentType.NUMBER:
         base = z.string();
         if (field.required) {
           base = base.min(1, { message: "Must have a value" });
@@ -26,7 +27,7 @@ export default function zodDinamicSchema(
           base = base.optional();
         }
         break;
-      case "date":
+      case FormComponentType.DATE:
         base = z.coerce.date({
           invalid_type_error: "Invalid Date",
           required_error: "Must have a value",
@@ -36,7 +37,7 @@ export default function zodDinamicSchema(
           base = base.optional();
         }
         break;
-      case "selection":
+      case FormComponentType.SELECTION:
         base = z.string();
         if (field.required) {
           base = base.min(1, { message: "Must have a value" });
@@ -44,7 +45,15 @@ export default function zodDinamicSchema(
           base = base.optional();
         }
         break;
-      case "radio":
+      case FormComponentType.TEXT_AREA:
+        base = z.string();
+        if (field.required) {
+          base = base.min(1, { message: "Must have a value" });
+        } else {
+          base = base.optional();
+        }
+        break;
+      case FormComponentType.RADIO:
         base = z.boolean();
         base = base.optional();
         break;

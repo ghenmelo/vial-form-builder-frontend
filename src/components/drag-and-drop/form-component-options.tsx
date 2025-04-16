@@ -5,11 +5,12 @@ import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import GenericDraggableComponent from "./generic-draggable-component";
 import { ChangeEvent, useState } from "react";
+import { FormComponentType } from "@/types/FormTypeComponents";
 
 const components: FormComponent[] = [
   {
     id: "1",
-    type: "Text",
+    type: FormComponentType.TEXT,
     inputed: false,
     question: "Text Title",
     required: false,
@@ -17,7 +18,7 @@ const components: FormComponent[] = [
   },
   {
     id: "2",
-    type: "Number",
+    type: FormComponentType.NUMBER,
     inputed: false,
     question: "Number Title",
     required: false,
@@ -25,7 +26,7 @@ const components: FormComponent[] = [
   },
   {
     id: "3",
-    type: "Radio",
+    type: FormComponentType.RADIO,
     inputed: false,
     question: "Radio Title",
     required: false,
@@ -33,7 +34,7 @@ const components: FormComponent[] = [
   },
   {
     id: "4",
-    type: "Selection",
+    type: FormComponentType.SELECTION,
     inputed: false,
     question: "Selection title",
     required: false,
@@ -42,7 +43,7 @@ const components: FormComponent[] = [
   },
   {
     id: "5",
-    type: "Date",
+    type: FormComponentType.DATE,
     inputed: false,
     question: "Date Title",
     required: false,
@@ -50,7 +51,7 @@ const components: FormComponent[] = [
   },
   {
     id: "6",
-    type: "Text Area",
+    type: FormComponentType.TEXT_AREA,
     inputed: false,
     question: "Text Area Title",
     required: false,

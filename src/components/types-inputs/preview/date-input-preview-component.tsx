@@ -18,6 +18,7 @@ interface Props {
 }
 
 export default function DateInputPreviewComponent({ component }: Props) {
+    console.log(component)
   return (
     <div className="grid max-w-sm items-start gap-3 p-6">
       <Label htmlFor={component.question}>
