@@ -11,7 +11,7 @@ export default function DropComponentArea(props: Droppable) {
   });
 
   return (
-    <div ref={setNodeRef} className="h-screen">
+    <div ref={setNodeRef} className="2xl:min-h-220 lg:h-180 h-100">
       {props.children || <p style={{ color: "#ccc" }}>Drop here</p>}
     </div>
   );

@@ -21,7 +21,7 @@ export default function FormReplyList({
   answers,
 }: Props) {
   return (
-    <div>
+    <div className="flex 2xl:min-h-190 lg:h-140 h-100">
       <Table>
         <TableHeader>
           <TableRow>

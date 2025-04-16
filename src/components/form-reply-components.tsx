@@ -129,8 +129,8 @@ export default function FormReplyComponents({ id }: Props) {
   };
 
   return (
-    <div className="flex justify-around items-center">
-      <div className="h-240 w-200 bg-primary-foreground rounded-sm flex flex-col gap-4 p-6">
+    <div className="flex justify-around">
+      <div className="bg-primary-foreground rounded-sm flex flex-col p-6 w-[40%]">
         <div className="flex flex-row items-center justify-between">
           <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
             Reply Form: {form?.name}
@@ -151,11 +151,11 @@ export default function FormReplyComponents({ id }: Props) {
         />
       </div>
 
-      <div className=" bg-primary-foreground rounded-sm pr-4">
-        <div className="flex flex-col w-full h-full">
+      <div className="flex w-[40%] bg-primary-foreground rounded-sm">
+        <div className="flex flex-col w-full ">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <ScrollArea className="h-240 w-150 scroll-auto">
-              <div className="flex flex-col h-full items-start">
+            <ScrollArea className="scroll-auto">
+              <div className="flex flex-col items-start">
                 <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary p-6">
                   {form?.name}
                 </h3>
@@ -182,6 +182,8 @@ export default function FormReplyComponents({ id }: Props) {
                         ></GenericComponent>
                       </div>
                     ))}
+              </div>
+              <div className="flex justify-end">
                 <Button
                   disabled={!isResponding}
                   className="w-40 mt-10 m-9 self-end"

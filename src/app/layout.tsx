@@ -31,11 +31,11 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="h-full m-8">{children}</div>
+          <div className="m-8">{children}</div>
           <Toaster />
         </ThemeProvider>
       </body>

@@ -24,22 +24,13 @@ export default function TextInputComponent({
         {component.question}
         {component.required && <span className="text-red-500">*</span>}
       </Label>
-      {register ? (
-        <Input
-          {...register(String(component.question))}
-          placeholder={component.placeholder}
-          type="text"
-          id={component.id}
-        />
-      ) : (
-        <Input
-          placeholder={component.placeholder}
-          disabled
-          type="text"
-          value={component.answer || ""}
-          id={component.id}
-        />
-      )}
+      <Input
+        {...(register ? register(String(component.question)) : {})}
+        placeholder={component.placeholder}
+        type="text"
+        disabled={!register}
+        id={component.id}
+      />
 
       {errors && errors[component.question] && (
         <span className="text-red-500 text-sm">

@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default async function FormViewer() {
   return (
-    <div className="w-[50%] h-full flex items-center justify-center flex-col">
-      <h1 className="scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-8xl self-start">
+    <div className="w-[50%] flex flex-col mt-20">
+      <h1 className="scroll-m-20 text-3xl font-extrabold tracking-tight lg:text-5xl self-start">
         Welcome to Form builder !
       </h1>
       <h3 className="scroll-m-20 text-2xl font-medium tracking-tight flex-start self-start text-ring">

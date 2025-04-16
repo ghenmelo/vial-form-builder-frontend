@@ -64,7 +64,7 @@ export default function GenericDraggableComponent({
       {...attributes}
       {...listeners}
       className={`w-full rounded-sm cursor-grab
-        ${isDragging ? "opacity-20" : "opacity-100"}
+        ${isDragging ? "opacity-25" : "opacity-100"}
         ${isCustomizing && "border-foreground border-1"}`}
     >
       {selectTypeComponent()}

@@ -145,13 +145,13 @@ export default function FormComponentBuilder() {
   };
 
   return (
-    <div className="flex gap-30 w-full h-full">
+    <div className="flex gap-30 w-full">
       <DndContext
         onDragStart={onDragStart}
         onDragOver={onDragOver}
         onDragEnd={onDragEnd}
       >
-        <div className="w-full h-full bg-primary-foreground rounded-sm flex flex-col gap-4">
+        <div className="w-[33%] bg-primary-foreground rounded-sm flex flex-col gap-4">
           <FormPropertiesComponent
             formProperties={formProperties}
             setFormProperties={setFormProperties}
@@ -160,8 +160,8 @@ export default function FormComponentBuilder() {
           <FormComponentsOptions />
         </div>
 
-        <div className=" h-full w-full">
-          <div className="w-full h-full max-h-full bg-primary-foreground rounded-sm pr-4">
+        <div className="w-[33%]">
+          <div className="w-full bg-primary-foreground rounded-sm pr-4">
             <div className="pt-6 px-6 w-full">
               <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
                 {formProperties.formTitle}
@@ -171,8 +171,11 @@ export default function FormComponentBuilder() {
               customizingComponentId={customizingComponent?.id}
               components={formSelectedComponents}
             />
-            <div className="px-6 w-full flex justify-end">
-              <Button className="w-36 bg-sidebar-primary text-white">
+            <div className="px-6 w-full flex justify-end pt-6">
+              <Button
+                disabled
+                className="w-36 mb-6 bg-sidebar-primary text-white"
+              >
                 Send Form
               </Button>
             </div>

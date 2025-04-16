@@ -61,7 +61,7 @@ export function FormComponentCustomizer({
   };
 
   return (
-    <div className="bg-primary-foreground w-full h-full rounded-sm flex flex-col p-6">
+    <div className="bg-primary-foreground w-[30%]  rounded-sm flex flex-col p-6">
       {selectTypeComponent()}
     </div>
   );

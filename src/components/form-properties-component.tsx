@@ -58,9 +58,10 @@ export function FormPropertiesComponent({
       <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
         Form properties
       </h3>
+
       <Separator className="my-4" />
 
-      <div className="flex flex-row w-full gap-10 items-center">
+      <div className="flex flex-row w-full gap-4 items-center justify-between">
         <div className=" flex flex-col w-sm gap-2">
           <Label htmlFor="text">Form Title</Label>
           <Input
@@ -72,11 +73,11 @@ export function FormPropertiesComponent({
         </div>
 
         <Button
-          className="flex bg-sidebar-primary w-40 h-12 rounded-sm text-white gap-2 mt-3 cursor-pointer hover:text-sidebar-primary"
+          className="flex bg-sidebar-primary w-40 h-9 rounded-sm text-white gap-2 mt-5.5 cursor-pointer hover:text-sidebar-primary"
           onClick={handleOnClick}
         >
           <SaveIcon width={30} height={24}></SaveIcon>
-          <h1 className="text-xl font-normal tracking-tight">Save Form</h1>
+          <h1 className="text-base font-normal tracking-tight">Save Form</h1>
         </Button>
       </div>
     </div>

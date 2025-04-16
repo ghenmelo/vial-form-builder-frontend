@@ -6,7 +6,7 @@ import GenericDraggableComponent from "./generic-draggable-component";
 const components: FormComponent[] = [
   {
     id: "1",
-    type: "text",
+    type: "TEXT",
     inputed: false,
     question: "Text Title",
     required: false,
@@ -14,7 +14,7 @@ const components: FormComponent[] = [
   },
   {
     id: "2",
-    type: "number",
+    type: "NUMBER",
     inputed: false,
     question: "Number Title",
     required: false,
@@ -22,7 +22,7 @@ const components: FormComponent[] = [
   },
   {
     id: "3",
-    type: "radio",
+    type: "RADIO",
     inputed: false,
     question: "Radio Title",
     required: false,
@@ -30,7 +30,7 @@ const components: FormComponent[] = [
   },
   {
     id: "4",
-    type: "selection",
+    type: "SELECTION",
     inputed: false,
     question: "Selection title",
     required: false,
@@ -39,7 +39,7 @@ const components: FormComponent[] = [
   },
   {
     id: "5",
-    type: "date",
+    type: "DATE",
     inputed: false,
     question: "Date Title",
     required: false,

@@ -24,21 +24,13 @@ export default function NumberInputComponent({
         {component.required && <span className="text-red-500">*</span>}
       </Label>
 
-      {register ? (
-        <Input
-          type="number"
-          id={component.question}
-          placeholder={component.placeholder}
-          {...register(String(component.question))}
-        />
-      ) : (
-        <Input
-          value={component.answer || ""}
-          disabled
-          placeholder={component.placeholder}
-          required={component.required}
-        />
-      )}
+      <Input
+        type="number"
+        id={component.question}
+        placeholder={component.placeholder}
+        disabled={!register}
+        {...(register ? register(String(component.question)) : {})}
+      />
 
       {errors && errors[component.question] && (
         <span className="text-red-500 text-sm">
