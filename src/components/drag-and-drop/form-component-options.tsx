@@ -48,6 +48,14 @@ const components: FormComponent[] = [
     required: false,
     placeholder: "Placeholder value",
   },
+  {
+    id: "6",
+    type: "Text Area",
+    inputed: false,
+    question: "Text Area Title",
+    required: false,
+    placeholder: "Placeholder value",
+  },
 ];
 
 export default function FormComponentsOptions() {

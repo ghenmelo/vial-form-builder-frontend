@@ -13,6 +13,9 @@ import NumberInputPreviewComponent from "./preview/number-input-preview-componen
 import DateInputPreviewComponent from "./preview/date-input-preview-component";
 import RadioInputPreviewComponent from "./preview/radio-input-preview-component";
 import SelectInputPreviewComponent from "./preview/selection-input-preview-component";
+import TextAreaInputComponent from "./usables/text-area-input-preview-component";
+import { Textarea } from "../ui/textarea";
+import TextAreaInputPreviewComponent from "./preview/text-area-input-preview-component";
 
 interface props {
   component: FormComponent;
@@ -87,6 +90,17 @@ export default function GenericComponent({
             />
           ) : (
             <SelectInputPreviewComponent component={component} />
+          );
+
+        case FormComponentTypeComponents.TEXT_AREA:
+          return register ? (
+            <TextAreaInputComponent
+              component={component}
+              register={register}
+              errors={errors}
+            />
+          ) : (
+            <TextAreaInputPreviewComponent component={component} />
           );
       }
     }

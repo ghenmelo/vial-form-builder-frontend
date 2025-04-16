@@ -54,6 +54,7 @@ export function FormPropertiesComponent({
         router.push("/form-viewer");
       })
       .catch((err) => {
+        console.log(err);
         toast.error(err.message);
       });
   };

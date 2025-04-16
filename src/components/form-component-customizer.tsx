@@ -1,11 +1,12 @@
 import { FormComponentTypeComponents } from "@/types/FormTypeComponents";
-import TextCustomizerInput from "./customizer-inputs/text-customizer-input";
+import TextCustomizerInput from "./types-inputs/customizers/text-customizer-input";
 import BasicTypeComponent from "./types-inputs/basic-type-component";
-import NumberCustomizerInput from "./customizer-inputs/number-customizer-input";
-import RadioCustomizerInput from "./customizer-inputs/radio-customizer-input";
-import DateCustomizerInput from "./customizer-inputs/date-customizer-input";
-import SelectionCustomizerInput from "./customizer-inputs/select-customizer-input";
+import NumberCustomizerInput from "./types-inputs/customizers/number-customizer-input";
+import RadioCustomizerInput from "./types-inputs/customizers/radio-customizer-input";
+import DateCustomizerInput from "./types-inputs/customizers/date-customizer-input";
+import SelectionCustomizerInput from "./types-inputs/customizers/select-customizer-input";
 import { FormComponent } from "@/types/FormComponent";
+import TextAreaCustomizerInput from "./types-inputs/customizers/text-area-customizer-input";
 
 interface propos {
   component: FormComponent;
@@ -50,6 +51,13 @@ export function FormComponentCustomizer({
         case FormComponentTypeComponents.SELECTION:
           return (
             <SelectionCustomizerInput
+              component={component}
+              updateComponent={updateComponent}
+            />
+          );
+        case FormComponentTypeComponents.TEXT_AREA:
+          return (
+            <TextAreaCustomizerInput
               component={component}
               updateComponent={updateComponent}
             />

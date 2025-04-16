@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Separator } from "../ui/separator";
+import { Separator } from "../../ui/separator";
 import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   updateComponent: (component: FormComponent) => void;
 }
 
-export default function NumberCustomizerInput({
+export default function DateCustomizerInput({
   component,
   updateComponent,
 }: Props) {
@@ -36,7 +36,7 @@ export default function NumberCustomizerInput({
   return (
     <div className="flex flex-col gap-4">
       <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-        Customizing Number Component
+        Customizing Date Component
       </h3>
 
       <Separator className="my-1" />

@@ -15,7 +15,7 @@ export const FormService = {
       body: JSON.stringify(data),
     });
 
-    return handleResponse(response, "Failed to submit form");
+    return handleResponse(response);
   },
 
   async getAllForms(): Promise<Form[]> {

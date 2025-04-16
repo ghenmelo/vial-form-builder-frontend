@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "../ui/separator";
+import { Switch } from "@/components/ui/switch";
+import { Separator } from "../../ui/separator";
 import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
   updateComponent: (component: FormComponent) => void;
 }
 
-export default function RadioCustomizerInput({
+export default function TextCustomizerInput({
   component,
   updateComponent,
 }: Props) {
@@ -22,10 +23,20 @@ export default function RadioCustomizerInput({
     });
   };
 
+  const handleChangeChecked = (
+    key: keyof FormComponent,
+    checkedValue: boolean
+  ) => {
+    updateComponent({
+      ...component,
+      [key]: checkedValue,
+    });
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-        Customizing Radio Component
+        Customizing Text Component
       </h3>
 
       <Separator className="my-1" />
@@ -38,6 +49,23 @@ export default function RadioCustomizerInput({
             value={component.question}
             onChange={(e) => handleChange("question", e)}
           />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="text">Placeholder</Label>
+          <Input
+            title="Placeholder"
+            value={component.placeholder}
+            onChange={(e) => handleChange("placeholder", e)}
+          />
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Switch
+            checked={component.required}
+            onCheckedChange={(e) => handleChangeChecked("required", e)}
+          />
+          <Label htmlFor="is-required">Input is Required</Label>
         </div>
       </div>
     </div>

@@ -1,11 +1,13 @@
 export async function handleResponse<T>(
   response: Response,
-  errorMessage: string
+  fallbackErrorMessage: string = "Something went wrong"
 ): Promise<T> {
+  const json = await response.json();
+
   if (!response.ok) {
+    const errorMessage = json.message || fallbackErrorMessage;
     throw new Error(errorMessage);
   }
 
-  const json = await response.json();
   return json.data;
 }

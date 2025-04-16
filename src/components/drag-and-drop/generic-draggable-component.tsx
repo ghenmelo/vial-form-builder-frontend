@@ -13,6 +13,7 @@ import NumberInputPreviewComponent from "../types-inputs/preview/number-input-pr
 import DateInputPreviewComponent from "../types-inputs/preview/date-input-preview-component";
 import RadioInputPreviewComponent from "../types-inputs/preview/radio-input-preview-component";
 import SelectInputPreviewComponent from "../types-inputs/preview/selection-input-preview-component";
+import TextAreaInputPreviewComponent from "../types-inputs/preview/text-area-input-preview-component";
 
 interface props {
   draggable: FormComponent;
@@ -56,6 +57,8 @@ export default function GenericDraggableComponent({
           return <RadioInputPreviewComponent component={draggable} />;
         case FormComponentTypeComponents.SELECTION:
           return <SelectInputPreviewComponent component={draggable} />;
+        case FormComponentTypeComponents.TEXT_AREA:
+          return <TextAreaInputPreviewComponent component={draggable} />;
       }
     }
 

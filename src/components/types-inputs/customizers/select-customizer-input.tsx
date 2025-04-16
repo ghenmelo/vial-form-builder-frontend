@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Separator } from "../ui/separator";
+import { Separator } from "../../ui/separator";
 import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   updateComponent: (component: FormComponent) => void;
 }
 
-export default function TextCustomizerInput({
+export default function SelectionCustomizerInput({
   component,
   updateComponent,
 }: Props) {
@@ -36,7 +36,7 @@ export default function TextCustomizerInput({
   return (
     <div className="flex flex-col gap-4">
       <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
-        Customizing Text Component
+        Customizing Selection Component
       </h3>
 
       <Separator className="my-1" />
@@ -66,6 +66,17 @@ export default function TextCustomizerInput({
             onCheckedChange={(e) => handleChangeChecked("required", e)}
           />
           <Label htmlFor="is-required">Input is Required</Label>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="text">Options</Label>
+          <Input
+            value={component.options}
+            onChange={(e) => handleChange("options", e)}
+          />
+          <p className="text-sm text-muted-foreground">
+            Put the seletion values between ;. Example: Apple;Grap;Orange;
+          </p>
         </div>
       </div>
     </div>
