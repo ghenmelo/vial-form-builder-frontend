@@ -1,10 +1,5 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import TextInputComponent from "../types-inputs/usables/text-input-component";
-import DateInputComponent from "../types-inputs/usables/date-input-component";
-import NumberInputComponent from "../types-inputs/usables/number-input-component";
-import RadioInputComponent from "../types-inputs/usables/radio-input-component";
-import SelectionInputComponent from "../types-inputs/usables/selection-input-component";
 import BasicTypeComponent from "../types-inputs/basic-type-component";
 import { FormComponentType } from "@/types/FormTypeComponents";
 import { FormComponent } from "@/types/FormComponent";

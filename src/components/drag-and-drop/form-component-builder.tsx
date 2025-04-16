@@ -12,7 +12,6 @@ import DragOverlayComponent from "./drag-overlay-component";
 import { useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 import { FormComponentCustomizer } from "../form-component-customizer";
-import { Button } from "../ui/button";
 import { FormComponent, FormProperties } from "@/types/FormComponent";
 import { FormPropertiesComponent } from "../form-properties-component";
 

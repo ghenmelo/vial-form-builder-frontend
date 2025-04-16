@@ -7,8 +7,10 @@ import { FormComponent } from "@/types/FormComponent";
 
 interface Props {
   component: FormComponent;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<Record<string, any>>;
   updateComponent?: (component: FormComponent) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors?: FieldErrors<Record<string, any>>;
 }
 
