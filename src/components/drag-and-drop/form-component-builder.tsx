@@ -15,6 +15,7 @@ import { FormComponentCustomizer } from "../form-component-customizer";
 import { FormComponent, FormProperties } from "@/types/FormComponent";
 import { FormPropertiesComponent } from "../form-properties-component";
 import ErrorBoundary from "../error-bondary";
+import { Separator } from "../ui/separator";
 
 export default function FormComponentBuilder() {
   const id = useId();
@@ -171,9 +172,10 @@ export default function FormComponentBuilder() {
           <div className="w-[33%] min-w-[25%]">
             <div className="w-full bg-primary-foreground rounded-sm pr-4">
               <div className="pt-6 px-6 w-full">
-                <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary break-all">
+                <h3 className="scroll-m-20 text-xl font-medium tracking-tight text-primary break-all">
                   {formProperties.formTitle}
                 </h3>
+                <Separator className="my-7" />
               </div>
               <FormDraggableComponents
                 customizingComponentId={customizingComponent?.id}

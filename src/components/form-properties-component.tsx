@@ -61,11 +61,11 @@ export function FormPropertiesComponent({
 
   return (
     <div className="m-6 flex flex-col">
-      <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+      <h3 className="scroll-m-20 text-xl font-medium tracking-tight text-primary">
         Form properties
       </h3>
 
-      <Separator className="my-4" />
+      <Separator className="my-7" />
 
       <div className="flex flex-row w-full gap-4 items-center justify-between">
         <div className=" flex flex-col w-sm gap-2">

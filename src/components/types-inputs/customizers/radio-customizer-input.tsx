@@ -28,7 +28,7 @@ export default function RadioCustomizerInput({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+        <h3 className="scroll-m-20 text-xl font-medium tracking-tight text-primary">
           Customizing Radio Component
         </h3>
 

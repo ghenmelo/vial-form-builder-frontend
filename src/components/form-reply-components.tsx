@@ -148,7 +148,7 @@ export default function FormReplyComponents({ id }: Props) {
 
         <Separator className="my-4"></Separator>
 
-        <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+        <h3 className="scroll-m-20 text-xl font-medium tracking-tight text-primary">
           Form Answers
         </h3>
         <FormReplyList

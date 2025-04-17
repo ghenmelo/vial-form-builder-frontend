@@ -74,7 +74,7 @@ export default function FormComponentsOptions() {
 
   return (
     <div className="m-6">
-      <h3 className="scroll-m-20 text-2xl font-medium tracking-tight text-primary">
+      <h3 className="scroll-m-20 text-xl font-medium tracking-tight text-primary">
         Assets
       </h3>
       <Separator className="my-4" />
