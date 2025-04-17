@@ -12,6 +12,8 @@ The frontend is deployed on **Vercel** and can be accessed here:
 
 🔗 https://vial-form-builder-frontend.vercel.app/form-reply
 
+> ⚠️ **Note:** The backend is hosted on a free-tier service that may go into sleep mode when inactive. Please wait a few seconds after the first request for the database to wake up.
+
 ---
 
 ## 🧭 Pages Overview
@@ -59,6 +61,14 @@ A dedicated page for:
 - 🎯 **Tooltips** on action icons for better UX
 - ✅ **Toast notifications** for success, errors, and warnings
 - 🧱 **Component-based architecture** for scalability
+
+---
+
+## 🧪 Testing
+
+Some **unit tests** were written using **Vitest** and **Testing Library** to validate key parts of the application such as component customization and service logic.
+
+> ⚠️ Note: **Only part of the system is covered by tests**. Full coverage is planned for future iterations.
 
 ---
 
